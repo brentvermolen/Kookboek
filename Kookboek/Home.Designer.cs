@@ -1,6 +1,6 @@
 ﻿namespace Kookboek
 {
-    partial class Form1
+    partial class Home
     {
         /// <summary>
         /// Required designer variable.
@@ -28,53 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.receptToevoegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zoekReceptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.receptenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingrediëntenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toonAllesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toevoegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.alleBekijkenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.receptToevoegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zoekReceptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recept1 = new System.Windows.Forms.GroupBox();
-            this.recept2 = new System.Windows.Forms.GroupBox();
-            this.recept4 = new System.Windows.Forms.GroupBox();
-            this.recept7 = new System.Windows.Forms.GroupBox();
-            this.recept3 = new System.Windows.Forms.GroupBox();
-            this.recept6 = new System.Windows.Forms.GroupBox();
-            this.recept5 = new System.Windows.Forms.GroupBox();
-            this.recept9 = new System.Windows.Forms.GroupBox();
-            this.recept8 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.recept2 = new System.Windows.Forms.GroupBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.recept4 = new System.Windows.Forms.GroupBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.recept7 = new System.Windows.Forms.GroupBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.recept3 = new System.Windows.Forms.GroupBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.recept6 = new System.Windows.Forms.GroupBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.recept5 = new System.Windows.Forms.GroupBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.recept9 = new System.Windows.Forms.GroupBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.recept8 = new System.Windows.Forms.GroupBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.recept1.SuspendLayout();
-            this.recept2.SuspendLayout();
-            this.recept4.SuspendLayout();
-            this.recept7.SuspendLayout();
-            this.recept3.SuspendLayout();
-            this.recept6.SuspendLayout();
-            this.recept5.SuspendLayout();
-            this.recept9.SuspendLayout();
-            this.recept8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.recept2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.recept4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.recept7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.recept3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.recept6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.recept5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.recept9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            this.recept8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -88,6 +88,20 @@
             this.menuStrip1.Size = new System.Drawing.Size(1170, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // receptToevoegenToolStripMenuItem
+            // 
+            this.receptToevoegenToolStripMenuItem.Name = "receptToevoegenToolStripMenuItem";
+            this.receptToevoegenToolStripMenuItem.Size = new System.Drawing.Size(144, 24);
+            this.receptToevoegenToolStripMenuItem.Text = "Recept Toevoegen";
+            this.receptToevoegenToolStripMenuItem.Click += new System.EventHandler(this.receptToevoegenToolStripMenuItem_Click);
+            // 
+            // zoekReceptToolStripMenuItem
+            // 
+            this.zoekReceptToolStripMenuItem.Name = "zoekReceptToolStripMenuItem";
+            this.zoekReceptToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
+            this.zoekReceptToolStripMenuItem.Text = "Zoek Recept";
+            this.zoekReceptToolStripMenuItem.Click += new System.EventHandler(this.zoekReceptToolStripMenuItem_Click);
             // 
             // receptenToolStripMenuItem
             // 
@@ -124,20 +138,6 @@
             this.alleBekijkenToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.alleBekijkenToolStripMenuItem.Text = "Alle bekijken";
             // 
-            // receptToevoegenToolStripMenuItem
-            // 
-            this.receptToevoegenToolStripMenuItem.Name = "receptToevoegenToolStripMenuItem";
-            this.receptToevoegenToolStripMenuItem.Size = new System.Drawing.Size(144, 24);
-            this.receptToevoegenToolStripMenuItem.Text = "Recept Toevoegen";
-            this.receptToevoegenToolStripMenuItem.Click += new System.EventHandler(this.receptToevoegenToolStripMenuItem_Click);
-            // 
-            // zoekReceptToolStripMenuItem
-            // 
-            this.zoekReceptToolStripMenuItem.Name = "zoekReceptToolStripMenuItem";
-            this.zoekReceptToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
-            this.zoekReceptToolStripMenuItem.Text = "Zoek Recept";
-            this.zoekReceptToolStripMenuItem.Click += new System.EventHandler(this.zoekReceptToolStripMenuItem_Click);
-            // 
             // recept1
             // 
             this.recept1.Controls.Add(this.pictureBox1);
@@ -146,87 +146,7 @@
             this.recept1.Size = new System.Drawing.Size(380, 253);
             this.recept1.TabIndex = 1;
             this.recept1.TabStop = false;
-            this.recept1.Text = "recept1";
-            // 
-            // recept2
-            // 
-            this.recept2.Controls.Add(this.pictureBox2);
-            this.recept2.Location = new System.Drawing.Point(396, 30);
-            this.recept2.Name = "recept2";
-            this.recept2.Size = new System.Drawing.Size(380, 253);
-            this.recept2.TabIndex = 2;
-            this.recept2.TabStop = false;
-            this.recept2.Text = "groupBox2";
-            // 
-            // recept4
-            // 
-            this.recept4.Controls.Add(this.pictureBox4);
-            this.recept4.Location = new System.Drawing.Point(12, 289);
-            this.recept4.Name = "recept4";
-            this.recept4.Size = new System.Drawing.Size(380, 253);
-            this.recept4.TabIndex = 2;
-            this.recept4.TabStop = false;
-            this.recept4.Text = "groupBox4";
-            // 
-            // recept7
-            // 
-            this.recept7.Controls.Add(this.pictureBox7);
-            this.recept7.Location = new System.Drawing.Point(10, 548);
-            this.recept7.Name = "recept7";
-            this.recept7.Size = new System.Drawing.Size(380, 253);
-            this.recept7.TabIndex = 3;
-            this.recept7.TabStop = false;
-            this.recept7.Text = "groupBox5";
-            // 
-            // recept3
-            // 
-            this.recept3.Controls.Add(this.pictureBox3);
-            this.recept3.Location = new System.Drawing.Point(782, 31);
-            this.recept3.Name = "recept3";
-            this.recept3.Size = new System.Drawing.Size(380, 253);
-            this.recept3.TabIndex = 3;
-            this.recept3.TabStop = false;
-            this.recept3.Text = "groupBox3";
-            // 
-            // recept6
-            // 
-            this.recept6.Controls.Add(this.pictureBox6);
-            this.recept6.Location = new System.Drawing.Point(784, 291);
-            this.recept6.Name = "recept6";
-            this.recept6.Size = new System.Drawing.Size(380, 253);
-            this.recept6.TabIndex = 5;
-            this.recept6.TabStop = false;
-            this.recept6.Text = "groupBox6";
-            // 
-            // recept5
-            // 
-            this.recept5.Controls.Add(this.pictureBox5);
-            this.recept5.Location = new System.Drawing.Point(398, 290);
-            this.recept5.Name = "recept5";
-            this.recept5.Size = new System.Drawing.Size(380, 253);
-            this.recept5.TabIndex = 4;
-            this.recept5.TabStop = false;
-            this.recept5.Text = "groupBox7";
-            // 
-            // recept9
-            // 
-            this.recept9.Controls.Add(this.pictureBox9);
-            this.recept9.Location = new System.Drawing.Point(784, 550);
-            this.recept9.Name = "recept9";
-            this.recept9.Size = new System.Drawing.Size(380, 253);
-            this.recept9.TabIndex = 7;
-            this.recept9.TabStop = false;
-            this.recept9.Text = "groupBox8";
-            // 
-            // recept8
-            // 
-            this.recept8.Controls.Add(this.pictureBox8);
-            this.recept8.Location = new System.Drawing.Point(398, 549);
-            this.recept8.Name = "recept8";
-            this.recept8.Size = new System.Drawing.Size(380, 253);
-            this.recept8.TabIndex = 6;
-            this.recept8.TabStop = false;
-            this.recept8.Text = "groupBox9";
+            this.recept1.Text = "leeg";
             // 
             // pictureBox1
             // 
@@ -237,6 +157,16 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // recept2
+            // 
+            this.recept2.Controls.Add(this.pictureBox2);
+            this.recept2.Location = new System.Drawing.Point(396, 30);
+            this.recept2.Name = "recept2";
+            this.recept2.Size = new System.Drawing.Size(380, 253);
+            this.recept2.TabIndex = 2;
+            this.recept2.TabStop = false;
+            this.recept2.Text = "leeg";
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Location = new System.Drawing.Point(6, 21);
@@ -246,14 +176,15 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // pictureBox3
+            // recept4
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(6, 20);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(368, 226);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
+            this.recept4.Controls.Add(this.pictureBox4);
+            this.recept4.Location = new System.Drawing.Point(12, 289);
+            this.recept4.Name = "recept4";
+            this.recept4.Size = new System.Drawing.Size(380, 253);
+            this.recept4.TabIndex = 2;
+            this.recept4.TabStop = false;
+            this.recept4.Text = "leeg";
             // 
             // pictureBox4
             // 
@@ -264,41 +195,15 @@
             this.pictureBox4.TabIndex = 1;
             this.pictureBox4.TabStop = false;
             // 
-            // pictureBox5
+            // recept7
             // 
-            this.pictureBox5.Location = new System.Drawing.Point(6, 20);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(368, 226);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 2;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Location = new System.Drawing.Point(6, 21);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(368, 226);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 3;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Location = new System.Drawing.Point(6, 20);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(368, 226);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox9.TabIndex = 4;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Location = new System.Drawing.Point(6, 21);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(368, 226);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 5;
-            this.pictureBox8.TabStop = false;
+            this.recept7.Controls.Add(this.pictureBox7);
+            this.recept7.Location = new System.Drawing.Point(10, 548);
+            this.recept7.Name = "recept7";
+            this.recept7.Size = new System.Drawing.Size(380, 253);
+            this.recept7.TabIndex = 3;
+            this.recept7.TabStop = false;
+            this.recept7.Text = "leeg";
             // 
             // pictureBox7
             // 
@@ -309,7 +214,102 @@
             this.pictureBox7.TabIndex = 6;
             this.pictureBox7.TabStop = false;
             // 
-            // Form1
+            // recept3
+            // 
+            this.recept3.Controls.Add(this.pictureBox3);
+            this.recept3.Location = new System.Drawing.Point(782, 31);
+            this.recept3.Name = "recept3";
+            this.recept3.Size = new System.Drawing.Size(380, 253);
+            this.recept3.TabIndex = 3;
+            this.recept3.TabStop = false;
+            this.recept3.Text = "leeg";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(6, 20);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(368, 226);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            // 
+            // recept6
+            // 
+            this.recept6.Controls.Add(this.pictureBox6);
+            this.recept6.Location = new System.Drawing.Point(784, 291);
+            this.recept6.Name = "recept6";
+            this.recept6.Size = new System.Drawing.Size(380, 253);
+            this.recept6.TabIndex = 5;
+            this.recept6.TabStop = false;
+            this.recept6.Text = "leeg";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Location = new System.Drawing.Point(6, 21);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(368, 226);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 3;
+            this.pictureBox6.TabStop = false;
+            // 
+            // recept5
+            // 
+            this.recept5.Controls.Add(this.pictureBox5);
+            this.recept5.Location = new System.Drawing.Point(398, 290);
+            this.recept5.Name = "recept5";
+            this.recept5.Size = new System.Drawing.Size(380, 253);
+            this.recept5.TabIndex = 4;
+            this.recept5.TabStop = false;
+            this.recept5.Text = "leeg";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Location = new System.Drawing.Point(6, 20);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(368, 226);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 2;
+            this.pictureBox5.TabStop = false;
+            // 
+            // recept9
+            // 
+            this.recept9.Controls.Add(this.pictureBox9);
+            this.recept9.Location = new System.Drawing.Point(784, 550);
+            this.recept9.Name = "recept9";
+            this.recept9.Size = new System.Drawing.Size(380, 253);
+            this.recept9.TabIndex = 7;
+            this.recept9.TabStop = false;
+            this.recept9.Text = "leeg";
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Location = new System.Drawing.Point(6, 20);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(368, 226);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox9.TabIndex = 4;
+            this.pictureBox9.TabStop = false;
+            // 
+            // recept8
+            // 
+            this.recept8.Controls.Add(this.pictureBox8);
+            this.recept8.Location = new System.Drawing.Point(398, 549);
+            this.recept8.Name = "recept8";
+            this.recept8.Size = new System.Drawing.Size(380, 253);
+            this.recept8.TabIndex = 6;
+            this.recept8.TabStop = false;
+            this.recept8.Text = "leeg";
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Location = new System.Drawing.Point(6, 21);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(368, 226);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 5;
+            this.pictureBox8.TabStop = false;
+            // 
+            // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -328,7 +328,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "Home";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Onze Recepten";
@@ -336,23 +336,23 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.recept1.ResumeLayout(false);
-            this.recept2.ResumeLayout(false);
-            this.recept4.ResumeLayout(false);
-            this.recept7.ResumeLayout(false);
-            this.recept3.ResumeLayout(false);
-            this.recept6.ResumeLayout(false);
-            this.recept5.ResumeLayout(false);
-            this.recept9.ResumeLayout(false);
-            this.recept8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.recept2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.recept4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.recept7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            this.recept3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.recept6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.recept5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.recept9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            this.recept8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -12,11 +12,12 @@ using System.Windows.Forms;
 
 namespace Kookboek
 {
-    public partial class Form1 : Form
+    public partial class Home : Form
     {
         private readonly ReceptRepository repo = new ReceptRepository();
+        private List<GroupBox> receptBoxen = new List<GroupBox>();
 
-        public Form1()
+        public Home()
         {
             InitializeComponent();
         }
@@ -33,6 +34,8 @@ namespace Kookboek
             for (int i = 0; i < 9; i++)
             {
                 GroupBox receptBox = (GroupBox)this.Controls.Find("recept" + (i + 1), true)[0];
+                PictureBox picRecept = (PictureBox)receptBox.Controls.Find("pictureBox" + (i + 1), true)[0];
+                receptBox.Tag = picRecept;
 
                 if (recepten.Count <= i)
                 {
@@ -41,22 +44,38 @@ namespace Kookboek
                 else
                 {
                     var recept = recepten[i];
-                    receptBox.Text = recept.Naam;
-
-                    PictureBox picRecept = (PictureBox)receptBox.Controls.Find("pictureBox" + (i + 1), true)[0];
-                    picRecept.ImageLocation = recept.ImageUrl;
+                    receptBox.VulMetRecept(recept);
 
                     picRecept.Click += new EventHandler((obj, args) =>
                     {
-                        //Recept openen
+                        ReceptBekijken frmReceptBekijken = new ReceptBekijken(recept);
+                        frmReceptBekijken.Show();
                     });
                 }
+
+                receptBoxen.Add(receptBox);
             }
         }
 
         private void receptToevoegenToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ReceptToevoegen frmReceptToevoegen = new ReceptToevoegen();
+            if (frmReceptToevoegen.ShowDialog() == DialogResult.OK && frmReceptToevoegen.recept != null)
+            {
+                var prevRecept = frmReceptToevoegen.recept;
 
+                foreach (var box in receptBoxen)
+                {
+                    if (prevRecept != null)
+                    {
+                        box.Visible = true;
+
+                        var curRecept = prevRecept;
+                        prevRecept = box.GetRecept();
+                        box.VulMetRecept(curRecept);
+                    }
+                }
+            }
         }
 
         private void zoekReceptToolStripMenuItem_Click(object sender, EventArgs e)
