@@ -11,7 +11,9 @@ namespace Domain
         Centiliter,
         Deciliter,
         Eetlepel,
-        Koffielepel
+        Koffielepel,
+        Centimeter,
+        Stokje
     }
 
     public static class EenheidMethods
@@ -34,6 +36,10 @@ namespace Domain
                     return "el";
                 case Eenheid.Koffielepel:
                     return "kl";
+                case Eenheid.Centimeter:
+                    return "cm";
+                case Eenheid.Stokje:
+                    return "Stokje(s)";
                 case Eenheid.Aantal:
                     return "";
                 default:

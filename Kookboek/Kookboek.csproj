@@ -56,6 +56,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dialogs\AddBereiding.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AddBereiding.Designer.cs">
+      <DependentUpon>AddBereiding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\AddIngrediënt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AddIngrediënt.Designer.cs">
+      <DependentUpon>AddIngrediënt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\RequestString.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\RequestString.Designer.cs">
+      <DependentUpon>RequestString.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +95,15 @@
     <Compile Include="ReceptToevoegen.Designer.cs">
       <DependentUpon>ReceptToevoegen.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Dialogs\AddBereiding.resx">
+      <DependentUpon>AddBereiding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\AddIngrediënt.resx">
+      <DependentUpon>AddIngrediënt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\RequestString.resx">
+      <DependentUpon>RequestString.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,6 +148,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\delete-737-475058.png" />
     <Content Include="Resources\Icon1.ico" />
   </ItemGroup>
   <ItemGroup />

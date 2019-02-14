@@ -13,7 +13,7 @@ namespace Kookboek
 {
     public partial class ReceptBekijken : Form
     {
-        private readonly Recept recept;
+        public Recept recept;
 
         public ReceptBekijken(Recept recept)
         {
@@ -73,20 +73,26 @@ namespace Kookboek
 
         private void nudAantalPersonen_ValueChanged(object sender, EventArgs e)
         {
-            lblIngrediënten.InsertIngrediënten(recept.Ingrediënten, (int)nudAantalPersonen.Value);
+            double multiplier = (double)nudAantalPersonen.Value / recept.AantalPersonen;
+            lblIngrediënten.InsertIngrediënten(recept.Ingrediënten, multiplier);
         }
 
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.OK;
             Close();
         }
 
         private void btnBewerk_Click(object sender, EventArgs e)
         {
             ReceptToevoegen receptToevoegen = new ReceptToevoegen(recept);
-            receptToevoegen.Show();
-
-            Close();
+            this.Hide();
+            if (receptToevoegen.ShowDialog() == DialogResult.OK)
+            {
+                this.Show();
+                recept = receptToevoegen.recept;
+                VulDialoog(recept);
+            }
         }
     }
 }

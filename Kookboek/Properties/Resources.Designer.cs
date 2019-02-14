@@ -59,5 +59,15 @@ namespace Kookboek.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap delete_737_475058 {
+            get {
+                object obj = ResourceManager.GetObject("delete-737-475058", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

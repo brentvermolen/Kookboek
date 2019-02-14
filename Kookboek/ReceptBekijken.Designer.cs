@@ -151,7 +151,7 @@
             // lblDuur
             // 
             this.lblDuur.AutoSize = true;
-            this.lblDuur.Location = new System.Drawing.Point(370, 161);
+            this.lblDuur.Location = new System.Drawing.Point(337, 161);
             this.lblDuur.Name = "lblDuur";
             this.lblDuur.Size = new System.Drawing.Size(34, 17);
             this.lblDuur.TabIndex = 30;
@@ -192,7 +192,7 @@
             // 
             this.lblIngrediënten.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lblIngrediënten.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIngrediënten.Location = new System.Drawing.Point(19, 21);
+            this.lblIngrediënten.Location = new System.Drawing.Point(18, 27);
             this.lblIngrediënten.Multiline = true;
             this.lblIngrediënten.Name = "lblIngrediënten";
             this.lblIngrediënten.ReadOnly = true;

@@ -39,7 +39,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.nudDuur = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnOpslaan = new System.Windows.Forms.Button();
             this.btnAnnuleren = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -50,6 +49,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lblIngrediënten = new System.Windows.Forms.TextBox();
             this.lblBereiding = new System.Windows.Forms.TextBox();
+            this.btnOpslaan = new System.Windows.Forms.Button();
+            this.btnVerwijder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picRecept)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAantalPersonen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDuur)).BeginInit();
@@ -181,19 +182,9 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "min.";
             // 
-            // btnOpslaan
-            // 
-            this.btnOpslaan.Location = new System.Drawing.Point(538, 662);
-            this.btnOpslaan.Name = "btnOpslaan";
-            this.btnOpslaan.Size = new System.Drawing.Size(227, 36);
-            this.btnOpslaan.TabIndex = 13;
-            this.btnOpslaan.Text = "Opslaan";
-            this.btnOpslaan.UseVisualStyleBackColor = true;
-            this.btnOpslaan.Click += new System.EventHandler(this.btnOpslaan_Click);
-            // 
             // btnAnnuleren
             // 
-            this.btnAnnuleren.Location = new System.Drawing.Point(771, 662);
+            this.btnAnnuleren.Location = new System.Drawing.Point(538, 662);
             this.btnAnnuleren.Name = "btnAnnuleren";
             this.btnAnnuleren.Size = new System.Drawing.Size(135, 36);
             this.btnAnnuleren.TabIndex = 14;
@@ -294,11 +285,33 @@
             this.lblBereiding.Size = new System.Drawing.Size(499, 453);
             this.lblBereiding.TabIndex = 3;
             // 
+            // btnOpslaan
+            // 
+            this.btnOpslaan.Location = new System.Drawing.Point(721, 662);
+            this.btnOpslaan.Name = "btnOpslaan";
+            this.btnOpslaan.Size = new System.Drawing.Size(185, 36);
+            this.btnOpslaan.TabIndex = 13;
+            this.btnOpslaan.Text = "Opslaan";
+            this.btnOpslaan.UseVisualStyleBackColor = true;
+            this.btnOpslaan.Click += new System.EventHandler(this.btnOpslaan_Click);
+            // 
+            // btnVerwijder
+            // 
+            this.btnVerwijder.BackgroundImage = global::Kookboek.Properties.Resources.delete_737_475058;
+            this.btnVerwijder.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnVerwijder.Location = new System.Drawing.Point(679, 662);
+            this.btnVerwijder.Name = "btnVerwijder";
+            this.btnVerwijder.Size = new System.Drawing.Size(36, 36);
+            this.btnVerwijder.TabIndex = 20;
+            this.btnVerwijder.UseVisualStyleBackColor = true;
+            this.btnVerwijder.Click += new System.EventHandler(this.btnVerwijder_Click);
+            // 
             // ReceptToevoegen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(918, 710);
+            this.Controls.Add(this.btnVerwijder);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtTags);
             this.Controls.Add(this.groupBox2);
@@ -348,7 +361,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown nudDuur;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnOpslaan;
         private System.Windows.Forms.Button btnAnnuleren;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -359,5 +371,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox lblIngrediënten;
         private System.Windows.Forms.TextBox lblBereiding;
+        private System.Windows.Forms.Button btnOpslaan;
+        private System.Windows.Forms.Button btnVerwijder;
     }
 }

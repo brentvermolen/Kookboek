@@ -1,4 +1,5 @@
 ﻿using Domain;
+using Kookboek.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace Kookboek
     public partial class ReceptToevoegen : Form
     {
         public Recept recept;
+        public Recept origineel;
         private List<IngrediëntEenheid> ingrediënten;
         private List<Bereiding> bereiding;
 
@@ -24,6 +26,7 @@ namespace Kookboek
             InitializeComponent();
 
             this.recept = recept;
+            this.origineel = recept;
         }
 
         private void ReceptToevoegen_Load(object sender, EventArgs e)
@@ -63,34 +66,67 @@ namespace Kookboek
         {
             List<Tag> tags = new List<Tag>();
 
-            recept = new Recept()
-            {
-                Naam = txtTitel.Text,
-                Omschrijving = txtOmschrijving.Text,
-                AantalPersonen = (int)nudAantalPersonen.Value,
-                DuurInMinuten = (int)nudDuur.Value,
-                Tags = tags,
-                ImageUrl = txtImageUrl.Text
-            };
+            recept.Naam = txtTitel.Text;
+            recept.Omschrijving = txtOmschrijving.Text;
+            recept.AantalPersonen = (int)nudAantalPersonen.Value;
+            recept.DuurInMinuten = (int)nudDuur.Value;
+            recept.Ingrediënten = ingrediënten;
+            recept.Bereiding = bereiding;
+            recept.Tags = tags;
+            recept.ImageUrl = txtImageUrl.Text;
 
+            recept.Opslaan();
             DialogResult = DialogResult.OK;
-            this.Close();
         }
 
         private void btnAnnuleren_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Abort;
-            this.Close();
+
+            if (edit)
+            {
+                ReceptBekijken receptBekijken = new ReceptBekijken(origineel);
+                receptBekijken.Show();
+                this.Close();
+            }
         }
 
         private void btnAddBereiding_Click(object sender, EventArgs e)
         {
+            AddBereiding addBereiding = new AddBereiding(new Bereiding() { Volgorde = bereiding.Count });
+            if (addBereiding.ShowDialog() == DialogResult.OK)
+            {
+                if (bereiding.Contains(addBereiding.Bereiding))
+                {
+                    bereiding.Remove(addBereiding.Bereiding);
+                }
 
+                bereiding.Add(addBereiding.Bereiding);
+                lblBereiding.InsertBereiding(bereiding);
+            }
         }
 
         private void btnAddIngrediënt_Click(object sender, EventArgs e)
         {
+            AddIngrediënt addIngrediënt = new AddIngrediënt();
+            if (addIngrediënt.ShowDialog() == DialogResult.OK)
+            {
+                if (ingrediënten.Contains(addIngrediënt.Ingrediënt))
+                {
+                    ingrediënten.Remove(addIngrediënt.Ingrediënt);
+                }
 
+                ingrediënten.Add(addIngrediënt.Ingrediënt);
+                lblIngrediënten.InsertIngrediënten(ingrediënten);
+            }
+        }
+
+        private void btnVerwijder_Click(object sender, EventArgs e)
+        {
+            if (edit)
+            {
+                recept.Delete();
+            }
         }
     }
 }

@@ -62,8 +62,7 @@ namespace DAL.EF
                 DuurInMinuten = 20,
                 Ingrediënten = ingrediënten,
                 Bereiding = bereiding,
-                Tags = tags,
-                Opmerkingen = "Extra info over het recept of bereiding"
+                Tags = tags
             };
 
             context.Recepten.Add(recept1);
