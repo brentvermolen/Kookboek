@@ -58,11 +58,12 @@ namespace DAL.EF
                 Naam = "Bouillabaisse",
                 Omschrijving = "Franse vissoep",
                 ImageUrl = "https://img.static-rmg.be/a/food/image/q75/w640/h400/2666/gebakken-zeetong-met-pasta.jpg",
-                AantalPersonen = 1,
+                AantalPersonen = 4,
                 DuurInMinuten = 20,
                 Ingrediënten = ingrediënten,
                 Bereiding = bereiding,
-                Tags = tags
+                Tags = tags,
+                Opmerkingen = "Extra info over het recept of bereiding"
             };
 
             context.Recepten.Add(recept1);

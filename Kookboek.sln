@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kookboek", "Kookboek\Kookboek.csproj", "{7D588E55-A7E6-4EDF-AAD6-DBE72E2465E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{F2C6B38C-BCB7-4BFD-B060-C8569DEF65A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{1E528A93-1C7A-4548-BF9E-C036363909F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{7D588E55-A7E6-4EDF-AAD6-DBE72E2465E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D588E55-A7E6-4EDF-AAD6-DBE72E2465E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D588E55-A7E6-4EDF-AAD6-DBE72E2465E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2C6B38C-BCB7-4BFD-B060-C8569DEF65A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2C6B38C-BCB7-4BFD-B060-C8569DEF65A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2C6B38C-BCB7-4BFD-B060-C8569DEF65A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2C6B38C-BCB7-4BFD-B060-C8569DEF65A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E528A93-1C7A-4548-BF9E-C036363909F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E528A93-1C7A-4548-BF9E-C036363909F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E528A93-1C7A-4548-BF9E-C036363909F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E528A93-1C7A-4548-BF9E-C036363909F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

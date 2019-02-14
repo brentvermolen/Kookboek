@@ -1,4 +1,6 @@
-﻿namespace Domain
+﻿using System.Windows.Forms;
+
+namespace Domain
 {
     public enum Eenheid
     {

@@ -15,6 +15,7 @@ namespace Domain
         public int DuurInMinuten { get; set; }
         public virtual List<IngrediëntEenheid> Ingrediënten { get; set; }
         public virtual List<Bereiding> Bereiding { get; set; }
+        public string Opmerkingen { get; set; }
 
         public virtual List<Tag> Tags { get; set; }
 
