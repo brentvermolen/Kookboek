@@ -82,7 +82,6 @@
             this.btnNieuwToevoegen.TabIndex = 4;
             this.btnNieuwToevoegen.Text = "+";
             this.btnNieuwToevoegen.UseVisualStyleBackColor = true;
-            this.btnNieuwToevoegen.Visible = false;
             this.btnNieuwToevoegen.Click += new System.EventHandler(this.btnNieuwToevoegen_Click);
             // 
             // lstEenheden

@@ -8,16 +8,11 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class Repository
+    public static class Repository
     {
-        private KookboekContext ctx;
+        private static KookboekContext ctx = new KookboekContext();
 
-        public Repository()
-        {
-            ctx = new KookboekContext();
-        }
-
-        public IEnumerable<Recept> GetRecepten(OrderBy orderBy = OrderBy.Naam, int Top = 20)
+        public static IEnumerable<Recept> GetRecepten(OrderBy orderBy = OrderBy.Naam, int Top = 20)
         {
             switch (orderBy)
             {
@@ -30,26 +25,26 @@ namespace DAL
             }
         }
 
-        public bool AddRecept(Recept recept)
+        public static Recept AddRecept(Recept recept)
         {
             try
             {
-                ctx.Recepten.Add(recept);
+                recept = ctx.Recepten.Add(recept);
                 ctx.SaveChanges();
             }
-            catch
+            catch (Exception ex)
             {
-                return false;
+                return null;
             }
 
-            return true;
+            return recept;
         }
 
-        public bool EditRecept(Recept recept)
+        public static bool EditRecept(Recept recept)
         {
             try
-            {                
-                ctx.Entry(recept).State = System.Data.Entity.EntityState.Modified;
+            { 
+
 
                 ctx.SaveChanges();
             } 
@@ -61,14 +56,14 @@ namespace DAL
             return true;
         }
 
-        public bool DeleteRecept(Recept recept)
+        public static bool DeleteRecept(Recept recept)
         {
             try
             {
-                ctx.Recepten.Remove(recept);
+                ctx.Recepten.Remove(GetRecept(recept.ID));
                 ctx.SaveChanges();
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
             }
@@ -76,7 +71,7 @@ namespace DAL
             return true;
         }
 
-        public Recept GetRecept(int ID)
+        public static Recept GetRecept(int ID)
         {
             return ctx.Recepten.Find(ID);
         }
@@ -94,7 +89,7 @@ namespace DAL
         //    }
         //}
 
-        public IEnumerable<Ingrediënt> GetIngrediënten(OrderBy orderBy = OrderBy.Naam)
+        public static IEnumerable<Ingrediënt> GetIngrediënten(OrderBy orderBy = OrderBy.Naam)
         {
             switch (orderBy)
             {
@@ -107,39 +102,39 @@ namespace DAL
             }
         }
 
-        public Ingrediënt GetIngrediënt(string naam)
+        public static Ingrediënt GetIngrediënt(string naam)
         {
             return ctx.Ingrediënten.Where(i => i.Naam.ToLower().Equals(naam.ToLower())).FirstOrDefault();
         }
 
-        public Ingrediënt GetIngrediënt(int ID)
+        public static Ingrediënt GetIngrediënt(int ID)
         {
             return ctx.Ingrediënten.Find(ID);
         }
 
-        public bool AddIngrediënt(Ingrediënt ingrediënt)
+        public static Ingrediënt AddIngrediënt(Ingrediënt ingrediënt)
         {
             try
             {
-                ctx.Ingrediënten.Add(ingrediënt);
+                ingrediënt = ctx.Ingrediënten.Add(ingrediënt);
                 ctx.SaveChanges();
             }
-            catch
+            catch (Exception ex)
             {
-                return false;
+                return null;
             }
 
-            return true;
+            return ingrediënt;
         }
 
-        public bool EditIngrediënt(Ingrediënt ingrediënt)
+        public static bool EditIngrediënt(Ingrediënt ingrediënt)
         {
             try
             {
                 ctx.Entry<Ingrediënt>(ingrediënt).State = System.Data.Entity.EntityState.Modified;
                 ctx.SaveChanges();
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
             }
@@ -147,14 +142,27 @@ namespace DAL
             return true;
         }
 
-        public bool DeleteIngrediënt(Ingrediënt ingrediënt)
+        public static Tag AddOrFindTag(string tag)
+        {
+            Tag t = ctx.Tags.Find(tag);
+
+            if (t == null)
+            {
+                //t = ctx.Tags.Add(new Tag() { Naam = tag });
+                t = new Tag() { Naam = tag };
+            }
+
+            return t;
+        }
+
+        public static bool DeleteIngrediënt(Ingrediënt ingrediënt)
         {
             try
             {
                 ctx.Ingrediënten.Remove(ingrediënt);
                 ctx.SaveChanges();
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
             }

@@ -16,45 +16,69 @@ namespace Kookboek
     {
         public Recept recept;
         public Recept origineel;
-        private List<IngrediëntEenheid> ingrediënten;
-        private List<Bereiding> bereiding;
+
+        BindingList<IngrediëntEenheid> ingrediënten;
+        BindingList<Bereiding> bereiding;
 
         private bool edit;
 
         public ReceptToevoegen(Recept recept = null)
         {
             InitializeComponent();
-
-            this.recept = recept;
+            
             this.origineel = recept;
+            this.recept = new Recept();
         }
 
         private void ReceptToevoegen_Load(object sender, EventArgs e)
         {
-            if (recept != null)
+            if (origineel != null)
             {
                 edit = true;
 
-                txtTitel.Text = recept.Naam;
-                txtOmschrijving.Text = recept.Omschrijving;
-                txtImageUrl.Text = recept.ImageUrl;
-                picRecept.ImageLocation = recept.ImageUrl;
-                nudAantalPersonen.Value = recept.AantalPersonen;
-                nudDuur.Value = recept.DuurInMinuten;
+                this.Text = "Wijzig '" + origineel.Naam + "'";
 
-                ingrediënten = recept.Ingrediënten;
-                bereiding = recept.Bereiding;
+                bereiding = origineel.Bereiding.Copy();
+                ingrediënten = origineel.Ingrediënten.Copy();
 
-                lblIngrediënten.InsertIngrediënten(ingrediënten);
-                lblBereiding.InsertBereiding(bereiding);
+                recept.ID = origineel.ID;
+                txtTitel.Text = origineel.Naam;
+                txtOmschrijving.Text = origineel.Omschrijving;
+                txtImageUrl.Text = origineel.ImageUrl;
+                picRecept.ImageLocation = origineel.ImageUrl;
+                nudAantalPersonen.Value = origineel.AantalPersonen;
+                nudDuur.Value = origineel.DuurInMinuten;
+
+                foreach(var tag in origineel.Tags)
+                {
+                    txtTags.Text += tag.Naam + " ";
+                }
+
+                lstIngrediënten.DataSource = ingrediënten;
+                lstBereiding.DataSource = bereiding;
+
+                btnVerwijder.Enabled = true;
             }
             else
             {
                 edit = false;
 
-                ingrediënten = new List<IngrediëntEenheid>();
-                bereiding = new List<Bereiding>();
+                bereiding = new BindingList<Bereiding>();
+                ingrediënten = new BindingList<IngrediëntEenheid>();
+
+                recept.Ingrediënten = new List<IngrediëntEenheid>();
+                recept.Bereiding = new List<Bereiding>();
+
+                btnVerwijder.Enabled = false;
             }
+
+            lstBereiding.DisplayMember = "Volledig";
+            lstBereiding.ValueMember = "Volgorde";
+            lstBereiding.DataSource = bereiding;
+
+            lstIngrediënten.DisplayMember = "Volledig";
+            lstIngrediënten.ValueMember = "IngredientID";
+            lstIngrediënten.DataSource = ingrediënten;
         }
 
         private void txtImageUrl_Leave(object sender, EventArgs e)
@@ -65,13 +89,20 @@ namespace Kookboek
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
             List<Tag> tags = new List<Tag>();
+            foreach(string tag in txtTags.Text.Split(' '))
+            {
+                if (!tag.Equals("") || !tag.Equals(" "))
+                {
+                    tags.Add(tag.FindTag());
+                }
+            }
 
             recept.Naam = txtTitel.Text;
             recept.Omschrijving = txtOmschrijving.Text;
             recept.AantalPersonen = (int)nudAantalPersonen.Value;
             recept.DuurInMinuten = (int)nudDuur.Value;
-            recept.Ingrediënten = ingrediënten;
-            recept.Bereiding = bereiding;
+            recept.Ingrediënten = ingrediënten.ToList();
+            recept.Bereiding = bereiding.ToList();
             recept.Tags = tags;
             recept.ImageUrl = txtImageUrl.Text;
 
@@ -102,13 +133,12 @@ namespace Kookboek
                 }
 
                 bereiding.Add(addBereiding.Bereiding);
-                lblBereiding.InsertBereiding(bereiding);
             }
         }
 
         private void btnAddIngrediënt_Click(object sender, EventArgs e)
         {
-            AddIngrediënt addIngrediënt = new AddIngrediënt();
+            AddIngrediënt addIngrediënt = new AddIngrediënt(new IngrediëntEenheid());
             if (addIngrediënt.ShowDialog() == DialogResult.OK)
             {
                 if (ingrediënten.Contains(addIngrediënt.Ingrediënt))
@@ -117,7 +147,6 @@ namespace Kookboek
                 }
 
                 ingrediënten.Add(addIngrediënt.Ingrediënt);
-                lblIngrediënten.InsertIngrediënten(ingrediënten);
             }
         }
 
@@ -126,6 +155,25 @@ namespace Kookboek
             if (edit)
             {
                 recept.Delete();
+                DialogResult = DialogResult.No;
+            }
+        }
+
+        private void lstBereiding_DoubleClick(object sender, EventArgs e)
+        {
+            AddBereiding editBereiding = new AddBereiding(bereiding[lstBereiding.SelectedIndex]);
+            if (editBereiding.ShowDialog() == DialogResult.OK)
+            {
+                bereiding[lstBereiding.SelectedIndex] = editBereiding.Bereiding;
+            }
+        }
+
+        private void lstIngrediënten_DoubleClick(object sender, EventArgs e)
+        {
+            AddIngrediënt editIngrediënt = new AddIngrediënt(ingrediënten[lstIngrediënten.SelectedIndex]);
+            if (editIngrediënt.ShowDialog() == DialogResult.OK)
+            {
+                ingrediënten[lstIngrediënten.SelectedIndex] = editIngrediënt.Ingrediënt;
             }
         }
     }

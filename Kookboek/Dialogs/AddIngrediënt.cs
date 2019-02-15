@@ -16,19 +16,19 @@ namespace Kookboek.Dialogs
     {
         public IngrediëntEenheid Ingrediënt { get; set; }
 
-        private readonly Repository repo = new Repository();
-
         private List<Ingrediënt> Ingrediënten = new List<Ingrediënt>();
         private List<Ingrediënt> DataSource = new List<Ingrediënt>();
 
-        public AddIngrediënt()
+        public AddIngrediënt(IngrediëntEenheid ingrediënt)
         {
             InitializeComponent();
+
+            this.Ingrediënt = ingrediënt;
         }
 
         private void AddIngrediënt_Load(object sender, EventArgs e)
         {
-            Ingrediënten = repo.GetIngrediënten().ToList();
+            Ingrediënten = Repository.GetIngrediënten().ToList();
             DataSource = Ingrediënten;
 
             lstIngrediënten.DataSource = DataSource;
@@ -36,6 +36,13 @@ namespace Kookboek.Dialogs
             lstIngrediënten.ValueMember = "ID";
 
             lstEenheden.DataSource = Enum.GetValues(typeof(Eenheid));
+
+            if (Ingrediënt.IngredientID != 0)
+            {
+                lstIngrediënten.SelectedIndex = Ingrediënten.FindIndex(i => i.ID == Ingrediënt.IngredientID);
+                lstEenheden.SelectedIndex = (int)Ingrediënt.Eenheid;
+                txtAantal.Text = Ingrediënt.Aantal + "";
+            }
         }
 
         private void txtIngrediënt_TextChanged(object sender, EventArgs e)
@@ -48,14 +55,14 @@ namespace Kookboek.Dialogs
             DataSource = Ingrediënten.Where(i => i.Naam.ToLower().Contains(txtIngrediënt.Text.ToLower())).ToList();
             lstIngrediënten.DataSource = DataSource;
 
-            if (DataSource.Count == 0)
+            /*if (DataSource.Count == 0)
             {
                 btnNieuwToevoegen.Visible = true;
             }
             else
             {
                 btnNieuwToevoegen.Visible = false;
-            }
+            }*/
         }
 
         private void btnNieuwToevoegen_Click(object sender, EventArgs e)
@@ -66,7 +73,7 @@ namespace Kookboek.Dialogs
             {
                 string nieuwIngrediënt = requestString.Tekst;
 
-                Ingrediënt ingrediënt = repo.GetIngrediënt(nieuwIngrediënt);
+                Ingrediënt ingrediënt = Repository.GetIngrediënt(nieuwIngrediënt);
                 if (ingrediënt == null)
                 {
                     ingrediënt = new Ingrediënt() { Naam = nieuwIngrediënt };
@@ -99,9 +106,15 @@ namespace Kookboek.Dialogs
                 return;
             }
 
+            if (lstIngrediënten.SelectedValue == null)
+            {
+                MessageBox.Show("Gelieve een ingrediënt te selecteren");
+                return;
+            }
+
             Ingrediënt = new IngrediëntEenheid()
             {
-                Ingrediënt = repo.GetIngrediënt((int)lstIngrediënten.SelectedValue),
+                Ingrediënt = Repository.GetIngrediënt((int)lstIngrediënten.SelectedValue),
                 Eenheid = eenheid,
                 Aantal = aantal
             };

@@ -87,11 +87,16 @@ namespace Kookboek
         {
             ReceptToevoegen receptToevoegen = new ReceptToevoegen(recept);
             this.Hide();
-            if (receptToevoegen.ShowDialog() == DialogResult.OK)
+            var result = receptToevoegen.ShowDialog();
+            if (result == DialogResult.OK)
             {
                 this.Show();
                 recept = receptToevoegen.recept;
                 VulDialoog(recept);
+            }else if(result == DialogResult.No)
+            {
+                DialogResult = DialogResult.No;
+                this.Close();
             }
         }
     }

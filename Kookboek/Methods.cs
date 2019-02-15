@@ -2,6 +2,7 @@
 using Domain;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +12,6 @@ namespace Kookboek
 {
     public static class Methods
     {
-        private static readonly Repository receptRepo = new Repository();
-        private static readonly Repository ingrediëntRepo = new Repository();
-
         public static void VulMetRecept(this GroupBox box, Recept recept)
         {
             box.Text = recept.Naam;
@@ -57,41 +55,76 @@ namespace Kookboek
             }
         }
 
+        public static BindingList<T> Copy<T>(this List<T> list)
+        {
+            BindingList<T> l = new BindingList<T>();
+
+            if (list == null || list.Count == 0)
+            {
+                return l;
+            }
+
+            foreach(var t in list)
+            {
+                l.Add(t);
+            }
+
+            return l;
+        }
+
         public static void Opslaan(this Recept recept)
         {
-            if (receptRepo.GetRecept(recept.ID) == null)
+            Recept receptDb = Repository.GetRecept(recept.ID);
+            if (receptDb != null)
             {
-                receptRepo.AddRecept(recept);
+                receptDb.Delete();
             }
-            else
-            {
-                receptRepo.EditRecept(recept);
-            }
+            
+            recept = Repository.AddRecept(recept);
+        }
+
+        public static void Update(this Recept recept, Recept receptUpdate)
+        {
+            recept.Naam = receptUpdate.Naam;
+            recept.Omschrijving = receptUpdate.Naam;
+            recept.AantalPersonen = receptUpdate.AantalPersonen;
+            recept.DuurInMinuten = receptUpdate.DuurInMinuten;
+            recept.Ingrediënten = receptUpdate.Ingrediënten;
+            recept.Bereiding = receptUpdate.Bereiding;
+            recept.ImageUrl = receptUpdate.ImageUrl;
+            recept.Tags = receptUpdate.Tags;
+
+            recept.Edit();
         }
 
         public static void Delete(this Recept recept)
         {
-            receptRepo.DeleteRecept(recept);
+            Repository.DeleteRecept(recept);
         }
 
         public static void Edit(this Recept recept)
         {
-            receptRepo.EditRecept(recept);
+            Repository.EditRecept(recept);
         }
 
         public static void Opslaan(this Ingrediënt ingrediënt)
         {
-            ingrediëntRepo.AddIngrediënt(ingrediënt);
+            Repository.AddIngrediënt(ingrediënt);
         }
 
         public static void Delete(this Ingrediënt ingrediënt)
         {
-            ingrediëntRepo.DeleteIngrediënt(ingrediënt);
+            Repository.DeleteIngrediënt(ingrediënt);
         }
 
         public static void Edit(this Ingrediënt ingrediënt)
         {
-            ingrediëntRepo.EditIngrediënt(ingrediënt);
+            Repository.EditIngrediënt(ingrediënt);
+        }
+
+        public static Tag FindTag(this string tag)
+        {
+            return Repository.AddOrFindTag(tag);
         }
     }
 }

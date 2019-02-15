@@ -43,12 +43,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAddIngrediënt = new System.Windows.Forms.Button();
+            this.lstIngrediënten = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnAddBereiding = new System.Windows.Forms.Button();
+            this.lstBereiding = new System.Windows.Forms.ListBox();
             this.txtTags = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.lblIngrediënten = new System.Windows.Forms.TextBox();
-            this.lblBereiding = new System.Windows.Forms.TextBox();
             this.btnOpslaan = new System.Windows.Forms.Button();
             this.btnVerwijder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picRecept)).BeginInit();
@@ -204,7 +204,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnAddIngrediënt);
-            this.groupBox1.Controls.Add(this.lblIngrediënten);
+            this.groupBox1.Controls.Add(this.lstIngrediënten);
             this.groupBox1.Location = new System.Drawing.Point(538, 273);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(368, 383);
@@ -223,10 +223,21 @@
             this.btnAddIngrediënt.UseVisualStyleBackColor = true;
             this.btnAddIngrediënt.Click += new System.EventHandler(this.btnAddIngrediënt_Click);
             // 
+            // lstIngrediënten
+            // 
+            this.lstIngrediënten.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstIngrediënten.FormattingEnabled = true;
+            this.lstIngrediënten.ItemHeight = 25;
+            this.lstIngrediënten.Location = new System.Drawing.Point(9, 21);
+            this.lstIngrediënten.Name = "lstIngrediënten";
+            this.lstIngrediënten.Size = new System.Drawing.Size(345, 354);
+            this.lstIngrediënten.TabIndex = 4;
+            this.lstIngrediënten.DoubleClick += new System.EventHandler(this.lstIngrediënten_DoubleClick);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnAddBereiding);
-            this.groupBox2.Controls.Add(this.lblBereiding);
+            this.groupBox2.Controls.Add(this.lstBereiding);
             this.groupBox2.Location = new System.Drawing.Point(12, 218);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(520, 480);
@@ -245,6 +256,17 @@
             this.btnAddBereiding.UseVisualStyleBackColor = true;
             this.btnAddBereiding.Click += new System.EventHandler(this.btnAddBereiding_Click);
             // 
+            // lstBereiding
+            // 
+            this.lstBereiding.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstBereiding.FormattingEnabled = true;
+            this.lstBereiding.ItemHeight = 25;
+            this.lstBereiding.Location = new System.Drawing.Point(15, 30);
+            this.lstBereiding.Name = "lstBereiding";
+            this.lstBereiding.Size = new System.Drawing.Size(488, 429);
+            this.lstBereiding.TabIndex = 3;
+            this.lstBereiding.DoubleClick += new System.EventHandler(this.lstBereiding_DoubleClick);
+            // 
             // txtTags
             // 
             this.txtTags.Location = new System.Drawing.Point(54, 190);
@@ -260,30 +282,6 @@
             this.label7.Size = new System.Drawing.Size(40, 17);
             this.label7.TabIndex = 19;
             this.label7.Text = "Tags";
-            // 
-            // lblIngrediënten
-            // 
-            this.lblIngrediënten.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lblIngrediënten.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIngrediënten.Location = new System.Drawing.Point(19, 21);
-            this.lblIngrediënten.Multiline = true;
-            this.lblIngrediënten.Name = "lblIngrediënten";
-            this.lblIngrediënten.ReadOnly = true;
-            this.lblIngrediënten.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.lblIngrediënten.Size = new System.Drawing.Size(343, 355);
-            this.lblIngrediënten.TabIndex = 2;
-            // 
-            // lblBereiding
-            // 
-            this.lblBereiding.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lblBereiding.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBereiding.Location = new System.Drawing.Point(15, 21);
-            this.lblBereiding.Multiline = true;
-            this.lblBereiding.Name = "lblBereiding";
-            this.lblBereiding.ReadOnly = true;
-            this.lblBereiding.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.lblBereiding.Size = new System.Drawing.Size(499, 453);
-            this.lblBereiding.TabIndex = 3;
             // 
             // btnOpslaan
             // 
@@ -340,9 +338,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudAantalPersonen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDuur)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,9 +365,9 @@
         private System.Windows.Forms.Button btnAddBereiding;
         private System.Windows.Forms.TextBox txtTags;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox lblIngrediënten;
-        private System.Windows.Forms.TextBox lblBereiding;
         private System.Windows.Forms.Button btnOpslaan;
         private System.Windows.Forms.Button btnVerwijder;
+        private System.Windows.Forms.ListBox lstIngrediënten;
+        private System.Windows.Forms.ListBox lstBereiding;
     }
 }

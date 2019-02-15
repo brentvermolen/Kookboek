@@ -11,9 +11,18 @@ namespace Domain
         public int Volgorde { get; set; }
         public string Omschrijving { get; set; }
 
+        [NotMapped]
+        public string Volledig
+        {
+            get
+            {
+                return (Volgorde + 1) + ") " + Omschrijving;
+            }
+        }
+
         public override string ToString()
         {
-            return (Volgorde + 1) + ") " + Omschrijving;
+            return Volledig;
         }
     }
 }

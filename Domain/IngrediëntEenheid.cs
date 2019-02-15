@@ -16,9 +16,22 @@ namespace Domain
         public double Aantal { get; set; }
         public Eenheid Eenheid { get; set; }
 
+        [NotMapped]
+        public string Volledig
+        {
+            get
+            {
+                try
+                {
+                    return Aantal + Eenheid.ToAfkorting() + " " + Ingrediënt.ToString();
+                }
+                catch { return ""; }
+            }
+        }
+
         public override string ToString()
         {
-            return Aantal + Eenheid.ToAfkorting() + " " + Ingrediënt.ToString();
+            return Volledig;
         }
     }
 }
